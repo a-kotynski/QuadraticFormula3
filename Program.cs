@@ -21,7 +21,6 @@ namespace QuadraticFormula3
 
         private static bool MainMenu()
         {
-            Console.Clear();
             Console.WriteLine("Menu Główne");
             Console.WriteLine("1. Miejsca zerowe równania kwadratowego.");
             Console.WriteLine("2. Wyjście");
@@ -50,21 +49,36 @@ namespace QuadraticFormula3
                 "Pamiętaj, aby współczynnik a był równy lub większy 0." + Environment.NewLine);
 
             Console.Write("Wpisz współczynnik a: ");
-            double valueA = Convert.ToDouble(Console.ReadLine());
+            double valueA;
 
-            //while (!Double.TryParse(Console.ReadLine(), out valueA)) <- wcześniejsza próba
-            if (valueA == 0)
+            if (!Double.TryParse(Console.ReadLine(), out valueA))
             {
+                Console.WriteLine("Wprowadzono nieprawidłowy znak." + Environment.NewLine);
+                return; // return wraca do metody Main()?
+            }
+            else if (valueA == 0)
+            {
+                //Console.Beep();
                 Console.WriteLine("Równanie ze współczynnikiem a równym 0 " +
-                    "nie jest równaniem kwadratowym.");
+                    "nie jest równaniem kwadratowym." + Environment.NewLine);
                 return;
             }
 
             Console.Write("Wpisz współczynnik b: ");
-            double valueB = Convert.ToDouble(Console.ReadLine());
+            double valueB;
+            if (!Double.TryParse(Console.ReadLine(), out valueB))
+            {
+                Console.WriteLine("Wprowadzono nieprawidłowy znak." + Environment.NewLine);
+                return; // jak wrócić do poprzedniego user inputu?
+            }
 
             Console.Write("Wpisz współczynnik c: ");
-            double valueC = Convert.ToDouble(Console.ReadLine());
+            double valueC;
+            if (!Double.TryParse(Console.ReadLine(), out valueC))
+            {
+                Console.WriteLine("Wprowadzono nieprawidłowy znak." + Environment.NewLine);
+                return;
+            }
 
             Console.Clear();
             Root(valueA, valueB, valueC);
