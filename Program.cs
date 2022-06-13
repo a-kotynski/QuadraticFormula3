@@ -11,14 +11,48 @@ namespace QuadraticFormula3
         static void Main(string[] args)
         {
             //zadanie wykonywane jest bez liczb zespolonych
+            bool displayMenu = true;
+            while (displayMenu == true)
+            {
+                displayMenu = MainMenu();
+            }
+            
+        }
 
+        private static bool MainMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Główne");
+            Console.WriteLine("1. Miejsca zerowe równania kwadratowego.");
+            Console.WriteLine("2. Wyjście");
+
+            string result = Console.ReadLine();
+            if (result == "1")
+            {
+                Form();
+                return true;
+            }
+            else if (result == "2")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        public static void Form()
+        {
+            Console.Clear();
             Console.WriteLine("Wpisz współczynniki liczbowe a, b i c." + Environment.NewLine +
                 "Pamiętaj, aby współczynnik a był równy lub większy 0." + Environment.NewLine);
 
             Console.Write("Wpisz współczynnik a: ");
             double valueA = Convert.ToDouble(Console.ReadLine());
 
-            //while (!Double.TryParse(Console.ReadLine(), out valueA)) ???
+            //while (!Double.TryParse(Console.ReadLine(), out valueA)) <- wcześniejsza próba
             if (valueA == 0)
             {
                 Console.WriteLine("Równanie ze współczynnikiem a równym 0 " +
@@ -34,11 +68,6 @@ namespace QuadraticFormula3
 
             Console.Clear();
             Root(valueA, valueB, valueC);
-        }
-
-        public static void Menu()
-        {
-
         }
 
         public static void Root(double valueA, double valueB, double valueC)
