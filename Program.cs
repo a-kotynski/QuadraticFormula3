@@ -84,7 +84,10 @@ namespace QuadraticFormula3
             Root(valueA, valueB, valueC);
         }
 
-        public static void Root(double valueA, double valueB, double valueC)
+        public static void Root(double valueA, double valueB, double valueC) // dlaczego konieczne jest
+                                                                             // zadeklarowanie zmiennych
+                                                                             // w argumencie tworzonej
+                                                                             // metody?
         {
             double delta = (valueB * valueB) - (4 * valueA * valueC);
 
