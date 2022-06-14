@@ -46,7 +46,7 @@ namespace QuadraticFormula3
         {
             Console.Clear();
             Console.WriteLine("Wpisz współczynniki liczbowe a, b i c." + Environment.NewLine +
-                "Pamiętaj, aby współczynnik a był równy lub większy 0." + Environment.NewLine);
+                "Pamiętaj, aby współczynnik a był wartością niezerową." + Environment.NewLine); //zmiana z: "Pamiętaj, aby współczynnik a był równy lub większy 0."
 
             Console.Write("Wpisz współczynnik a: ");
             double valueA;
@@ -54,7 +54,7 @@ namespace QuadraticFormula3
             if (!Double.TryParse(Console.ReadLine(), out valueA))
             {
                 Console.WriteLine("Wprowadzono nieprawidłowy znak." + Environment.NewLine);
-                return; // return wraca do metody Main()?
+                return; // return wraca do metody Main()? odp.: return nie wraca do funkcji main tylko zakańcza działanie funkcji form()
             }
             else if (valueA == 0)
             {
@@ -69,7 +69,9 @@ namespace QuadraticFormula3
             if (!Double.TryParse(Console.ReadLine(), out valueB))
             {
                 Console.WriteLine("Wprowadzono nieprawidłowy znak." + Environment.NewLine);
-                return; // jak wrócić do poprzedniego user inputu?
+                return; // jak wrócić do poprzedniego user inputu? odp.: stworzyć osobną metodę dla
+                        // wprowadzania współczynnika (jedna metoda dla wszystkich wspolczynnikow)
+                        // i wywolywac w pętli dopoki wprowadzony wspolczynnik nie bedzie poprawny
             }
 
             Console.Write("Wpisz współczynnik c: ");
